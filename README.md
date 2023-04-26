@@ -1,4 +1,6 @@
-# Project Description test
+# readmeGenerator
+
+# Project Description
 
 ## License function generateLicense(license) {
     if (license === "MIT") {
