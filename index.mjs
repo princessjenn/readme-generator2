@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import fs from "fs/promises"; 
+import fs from "fs/promises";
 
 
 let { title, description, license } = await inquirer
@@ -8,7 +8,7 @@ let { title, description, license } = await inquirer
             type: 'input',
             name: 'title',
             message: "Write a title for your project: ",
-            
+
         },
         {
             type: 'input',
@@ -58,7 +58,7 @@ fs.writeFile("README.md", readmeText, function (err) {
         console.log("README.md was saved successfully!");
     }
 });
- 
+
 
 
 //console.log(description);
