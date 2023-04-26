@@ -2,8 +2,14 @@ import inquirer from 'inquirer';
 import fs from "fs/promises"; 
 
 
-let { description, license } = await inquirer
+let { title, description, license } = await inquirer
     .prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: "Write a title for your project: ",
+            
+        },
         {
             type: 'input',
             name: 'description',
@@ -18,11 +24,11 @@ let { description, license } = await inquirer
         },
     ])
 
-let readmeText = `# Project Description ${description}
+let readmeText = `# Title ${title}\n\n Title of your project here, displayed with the largest heading\n\n ## Description ${description}\n\n Insert description here\n\n ## License ${generateLicense(license)}\n\n`;
 
-## License ${generateLicense}(license) 
+//## License ${generateLicense}(license) 
 
-### A third-level heading`
+//### A third-level heading`
 
 
 fs.writeFile("README.md", readmeText);
