@@ -127,6 +127,8 @@ function generateTableOfContents() {
     }
     return toc;
 }
+
+
 //if any of the boolean variables are true, the corresponding section '## heading' will be added to the TOC. Each section heading is linked to the appropriate section in the README using an anchor tag with a matching id attribute.
 
 fs.writeFile("README.md", readmeText, function (err) {
