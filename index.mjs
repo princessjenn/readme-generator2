@@ -62,7 +62,7 @@ let {
 
 fs.writeFile("README.md", readmeText);
 
-function generateLicense(license) {
+function generateLicenseBadge(license) {
     if (license === "MIT") {
         return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
 
@@ -80,7 +80,21 @@ function generateLicense(license) {
     }
 }
 
-let readmeText = `# ${title}\n\n${generateLicense(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
+function generateLicense(license) {
+    if (license === "MIT") {
+        return "This project is licensed under the terms of the MIT license.";
+    } else if (license === "Apache 2.0") {
+        return "This project is licensed under the terms of the Apache 2.0 license.";
+    } else if (license === "ISC") {
+        return "This project is licensed under the terms of the ISC license.";
+    } else if (license === "BSD") {
+        return "This project is licensed under the terms of the BSD-3-Clause license.";
+    } else {
+        return ""
+    }
+}
+
+let readmeText = `# ${title}\n\n${generateLicenseBadge(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
 
 
 fs.writeFile("README.md", readmeText, function (err) {
