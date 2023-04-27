@@ -1,9 +1,9 @@
-# Title hi
+# Title Beluga Whales Project
 
 
 ## Description
 
-hi
+This is a project all about looking at cute Beluga whales
 
 
 ## Table of Contents
@@ -18,12 +18,12 @@ hi
 
 ## Installation
 
-hi
+Just go onto your browser and type in google.com and then search 'beluga whales' into the search bar
 
 
 ## Usage
 
-hi
+you will search in google images some pix of cute beluga whales and your eyes will see them
 
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -33,14 +33,14 @@ This project is licensed under the terms of the MIT license.
 
 ## Contributing
 
-hi
+Google.com contibuted by supplying pix of belugas for my eyeballs to look at
 
 
 ## Tests
 
-hi
+look up beluga whales and see if they show up in your browser results, if they did, you did it
 
 
 ## Questions
 
-hi
+contact me at 1-800-belugas for more questions
