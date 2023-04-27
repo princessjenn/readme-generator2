@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
 import fs from "fs/promises";
+//importing the required modules (inquirer and fs)
 
 
 let {
@@ -11,7 +12,7 @@ let {
     contributing,
     tests,
     questions
-} = await inquirer.prompt([
+} = await inquirer.prompt([ // prompts the user to input data, providing functionality thru Inquirer
     
     {
         type: 'input',
@@ -61,6 +62,8 @@ let {
 
 
 fs.writeFile("README.md", readmeText);
+// uses the user's inputs to generate the text that will be written into the README file,
+// then writes that text to a file using the file system
 
 function generateLicenseBadge(license) {
     if (license === "MIT") {
@@ -94,7 +97,28 @@ function generateLicense(license) {
     }
 }
 
-let readmeText = `# ${title}\n\n${generateLicenseBadge(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
+function generateTableOfContents() {
+    let toc = "";
+    if (installation) {
+        toc += "- [Installation](#installation)\n";
+    }
+    if (usage) {
+        toc += "- [Usage](#usage)\n";
+    }
+    if (contributing) {
+        toc += "- [Contributing](#contributing)\n";
+    }
+    if (tests) {
+        toc += "- [Tests](#tests)\n";
+    }
+    if (questions) {
+        toc += "- [Questions](#questions)\n";
+    }
+    return toc;
+}
+//if any of the boolean variables are true, the corresponding section '## heading' will be added to the TOC. Each section heading is linked to the appropriate section in the README using an anchor tag with a matching id attribute.
+
+let readmeText = `# ${title}\n\n${generateLicenseBadge(license)}\n\n${generateLicense(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
 
 
 fs.writeFile("README.md", readmeText, function (err) {
@@ -103,4 +127,6 @@ fs.writeFile("README.md", readmeText, function (err) {
     } else {
         console.log("README.md was saved successfully!");
     }
-});
+}); //callback function to log a success message to the console if the write operation was successful, or an error message if there was an error
+
+
