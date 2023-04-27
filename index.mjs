@@ -2,33 +2,62 @@ import inquirer from 'inquirer';
 import fs from "fs/promises";
 
 
-let { title, description, license } = await inquirer
-    .prompt([
-        {
-            type: 'input',
-            name: 'title',
-            message: "Write a title for your project: ",
+let {
+    title,
+    description,
+    license,
+    installation,
+    usage,
+    contributing,
+    tests,
+    questions
+} = await inquirer.prompt([
+    
+    {
+        type: 'input',
+        name: 'title',
+        message: "Write a title for your project: ",
 
-        },
-        {
-            type: 'input',
-            name: 'description',
-            message: "Write a description of your project: ",
-        },
-        {
-            type: 'list',
-            name: 'license',
-            message: 'Which License for your Github repository?',
-            choices: ['MIT', 'Apache 2.0', 'ISC', 'BSD'],
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: "Write a description of your project: ",
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Which License for your Github repository?',
+        choices: ['MIT', 'Apache 2.0', 'ISC', 'BSD'],
 
-        },
-    ])
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'What are the installation instructions for your project?',
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'What are the usage instructions for your project?',
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'What are the contribution guidelines for your project?',
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What are the testing instructions for your project?',
+    },
+    {
+        type: 'input',
+        name: 'questions',
+        message: 'What are the instructions for users to contact you with questions?',
+    },
 
-let readmeText = `# Title ${title}\n\n Title of your project here, displayed with the largest heading\n\n ## Description ${description}\n\n Insert description here\n\n ## License ${generateLicense(license)}\n\n`;
-
-//## License ${generateLicense}(license) 
-
-//### A third-level heading`
+])
 
 
 fs.writeFile("README.md", readmeText);
@@ -51,6 +80,9 @@ function generateLicense(license) {
     }
 }
 
+let readmeText = `# ${title}\n\n${generateLicense(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
+
+
 fs.writeFile("README.md", readmeText, function (err) {
     if (err) {
         console.log("An error occurred while writing to README.md:", err);
@@ -58,7 +90,3 @@ fs.writeFile("README.md", readmeText, function (err) {
         console.log("README.md was saved successfully!");
     }
 });
-
-
-
-//console.log(description);
