@@ -2,6 +2,8 @@ import inquirer from 'inquirer';
 import fs from "fs/promises";
 //importing the required modules (inquirer and fs)
 
+let readmeText = `# ${title}\n\n${generateLicenseBadge(license)}\n\n${generateLicense(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
+// variable is initialized at top of code, before it is used in any of the functions
 
 let {
     title,
@@ -117,9 +119,6 @@ function generateTableOfContents() {
     return toc;
 }
 //if any of the boolean variables are true, the corresponding section '## heading' will be added to the TOC. Each section heading is linked to the appropriate section in the README using an anchor tag with a matching id attribute.
-
-let readmeText = `# ${title}\n\n${generateLicenseBadge(license)}\n\n${generateLicense(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
-
 
 fs.writeFile("README.md", readmeText, function (err) {
     if (err) {
