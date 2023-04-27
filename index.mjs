@@ -2,9 +2,6 @@ import inquirer from 'inquirer';
 import fs from "fs/promises";
 //importing the required modules (inquirer and fs)
 
-let readmeText = `# ${title}\n\n${generateLicenseBadge(license)}\n\n${generateLicense(license)}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n${generateTableOfContents()}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## Contributing\n\n${contributing}\n\n## Tests\n\n${tests}\n\n## Questions\n\n${questions}\n`;
-// variable is initialized at top of code, before it is used in any of the functions
-
 let {
     title,
     description,
@@ -15,7 +12,7 @@ let {
     tests,
     questions
 } = await inquirer.prompt([ // prompts the user to input data, providing functionality thru Inquirer
-    
+
     {
         type: 'input',
         name: 'title',
@@ -60,7 +57,19 @@ let {
         message: 'What are the instructions for users to contact you with questions?',
     },
 
-])
+]);
+
+let readmeText =
+`# Title ${title}\n\n
+## Description\n\n${description}\n\n
+## Table of Contents\n\n${generateTableOfContents()}\n\n
+## Installation\n\n${installation}\n\n
+## Usage\n\n${usage}\n\n
+## License ${generateLicenseBadge(license)}\n\n${generateLicense(license)}\n\n
+## Contributing\n\n${contributing}\n\n
+## Tests\n\n${tests}\n\n
+## Questions\n\n${questions}\n`;
+    // variable is initialized before it is used in any of the functions
 
 
 fs.writeFile("README.md", readmeText);
