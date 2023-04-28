@@ -3,7 +3,10 @@
 
 ## Description
 
+DEMO Walkthrough seen here: (https://drive.google.com/file/d/1N9E4H69QSdQxUiCXdRrAznX9SNmc6oZp/view?usp=sharing) 
+Repository Link: (https://github.com/princessjenn/readme-generator2.git)
 
+This application helps a user to generate their own professional, quality README file in the command line interface based upon prompts given for each section of the README. The user will be prompted with questions to input in the command-line and once the program ends, they will have a README built based upon their input answers!
 
 
 ## Table of Contents
@@ -55,6 +58,12 @@ Now we're ready to start coding!
 
 ## Usage
 
+You can quickly and easily create a README file by using this command-line application to generate one. This allows a project creator to devote more time to working on the project!
+
+1. In VS Code, open the integrated terminal associated with your .mjs file
+2. Assuming you have the programs and dependencies described above in the 'Installation' section, simply type ```node index.mjs``` into CLI to start running the generator.
+3. You will be presented with prompts that wait on the user's input, in which the user will type their answer into the command line, and then press enter to present the next prompt.
+4. Once the program ends and the user has entered all of their inputs on the command line based upon the given prompts, the README.md file will be generated in your explorer on VS Code!
 
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -80,11 +89,11 @@ Thanks for contributing!
 ## Tests
 
 To ensure that my README generator was functioning properly, I used Node.js to runtests on my generator application. These tests allowed me to check that my functions were correctly applying user input into the README.md file thus generating a quality, professional README.md file with all the necessary sections. By using Node.js to run these tests, I was able to catch any potential bugs or errors early on in the development process, ensuring that my final product was functional.
-
-```md 
+ 
 ![Node.js Test](testing-node-screenshot.png)
-```
 
 ## Questions
 
+Ask me on Github: (https://https://github.com/princessjenn)
 
+Email Me for more questions: j.eckenrode@me.com
